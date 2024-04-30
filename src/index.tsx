@@ -24,9 +24,8 @@ export default function Command() {
       throttle
     >
       <List.Section title="Custom UTF-8 Fonts" subtitle={"Press enter to copy to clipboard"}>
-      // Iterate over fonts and add a CustomFontItem for each
-        {fonts.map((font) => (
-        <CustomFontItem inputText={ searchText } fontType= { font } /> 
+        {fonts.map((font, index) => (
+            <CustomFontItem key={ index } inputText={ searchText } fontType= { font } /> 
         ))}
       </List.Section>
     </List>
@@ -36,10 +35,8 @@ export default function Command() {
 function CustomFontItem({ inputText, fontType }: { inputText: string, fontType: string}) {
     return (
         <List.Item
-            //title={ inputText }
             title= { fontToCustomFont(inputText, fontType) }
             subtitle={ fontType }
-            //accessories={[{ text: inputText }]}
             actions={
                 <ActionPanel>
                     <ActionPanel.Section>
